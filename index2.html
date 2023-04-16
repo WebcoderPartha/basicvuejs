@@ -17,9 +17,21 @@
     <div class="container">
         <div class="row">
             <div class="col-md-6">
-                <a :href="link.web" class="btn btn-primary">Click here</a>
-                <h3 :class="classes">Partha</h3>
+                <h2>{{ title}} {{ dollar}}</h2>
+                <button class="btn btn-danger" v-on:click="dollar--">-1</button>
+                <button class="btn btn-primary" v-on:click="dollar++">+1</button>
             </div>
+
+            <div class="col-md-6">
+
+                <div class="form-group">
+                    <button @click="decrement(2)" class="btn btn-danger">Decrement</button>
+                    <input type="text" class="form-control" v-model="dollar">
+                    <button @click="increment(2)" class="btn btn-danger">Increment</button>
+                </div>
+
+            </div>
+
         </div>
     </div>
 
@@ -31,10 +43,16 @@
     createApp({
         data(){
             return {
-                link: {
-                    web:'www.facebook.com'
-                },
-                classes: ['text-center', 'bold']
+                dollar: 100,
+                title: 'here is my dollar'
+            }
+        },
+        methods:{
+            increment(value){
+                 this.dollar += value;
+            },
+            decrement(value){
+                this.dollar -= value;
             }
         }
     }).mount('#app')
