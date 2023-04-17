@@ -2,7 +2,7 @@
 
   <div class="container">
     <h2>{{ title}}</h2>
-    <Friends :friends="friends" />
+    <Friends :friends="friends" @delete="destroy" />
     <Online :online="friends" />
 
 
@@ -30,6 +30,13 @@ export default {
   components: {
     Friends,
     Online
+  },
+  methods: {
+    destroy(payload){
+      this.friends = this.friends.filter(friend => {
+        return friend.name !== payload.name;
+      })
+    }
   }
 }
 </script>

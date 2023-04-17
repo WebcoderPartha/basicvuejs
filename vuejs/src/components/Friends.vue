@@ -7,6 +7,7 @@
         <th>Name</th>
         <th>Email</th>
         <th>Online</th>
+        <th>Action</th>
       </tr>
       </thead>
 
@@ -15,6 +16,7 @@
         <td>{{ fnd.name }}</td>
         <td>{{ fnd.email }}</td>
         <td>{{ fnd.online }}</td>
+        <td><button @click="unfriend(fnd.name)" class="btn btn-sm btn-danger">Delete</button></td>
       </tr>
       </tbody>
 
@@ -27,7 +29,12 @@ export default {
   name: "Friends",
   props: [
       'friends'
-  ]
+  ],
+  methods:{
+    unfriend(name){
+      this.$emit('delete', {name});
+    }
+  }
 }
 </script>
 
