@@ -18,16 +18,15 @@
         <div class="row">
             <div class="col-md-6">
                 <h2>My name is {{ name}}</h2>
-                <h3>Father Name: {{father_name}}</h3>
+                <h3>Father Name: {{fatherName}}</h3>
                 <form action="">
                     <div class="form-group">
                         <label for="name">What's your name?</label>
-                        <input type="text" id="name" @keyup="nameMethod" class="form-control">
+                        <input type="text" id="name" v-model="name" class="form-control">
                     </div>
-
                     <div class="form-group">
-                        <label for="father">What's your name?</label>
-                        <input type="text" id="father" @keyup="father" class="form-control">
+                        <label for="father">What's your fatherName?</label>
+                        <input type="text" id="father" v-model="fatherName" class="form-control">
                     </div>
                 </form>
             </div>
@@ -42,18 +41,11 @@
     const { createApp } = Vue
 
     createApp({
+
         data(){
             return {
                 name: '',
-                father_name: ''
-            }
-        },
-        methods: {
-            nameMethod(e){
-                this.name = e.target.value
-            },
-            father(e){
-                this.father_name = e.target.value
+                fatherName: ''
             }
         }
 
