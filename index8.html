@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.min.js"></script>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+<body>
+
+
+<div id="app">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <table class="table">
+                    <tr>
+                        <th>Name</th>
+                        <th>email</th>
+                    </tr>
+                    <tr v-for="(student, index) in students":key="index +1">
+                        <td>{{ index+1}}</td>
+                        <td>{{ student.name}}</td>
+                        <td>{{ student.email}}</td>
+                    </tr>
+                </table>
+            </div>
+
+
+        </div>
+    </div>
+
+</div>
+
+<script>
+    const { createApp } = Vue
+
+    createApp({
+
+        data(){
+            return {
+                students: [
+                    {name: 'partha', email: 'partha@gmail.com'},
+                    {name: 'mitu', email: 'partha@gmail.com'}
+                ]
+            }
+        },
+        methods:{
+
+        }
+
+    }).mount('#app')
+</script>
+</body>
+</html>
