@@ -4,6 +4,7 @@
     <h2>{{ title}}</h2>
     <Friends :friends="friends" @delete="destroy" />
     <Online :online="friends" />
+    <Hook />
 
 
   </div>
@@ -14,6 +15,7 @@
 
 import Friends from "@/components/Friends";
 import Online from "@/components/Online";
+import Hook from "@/components/Hook";
 export default {
   name: 'App',
   data(){
@@ -29,7 +31,8 @@ export default {
   },
   components: {
     Friends,
-    Online
+    Online,
+    Hook
   },
   methods: {
     destroy(payload){
